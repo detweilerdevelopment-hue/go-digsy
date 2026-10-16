@@ -1,0 +1,13 @@
+# Original artwork layer preparation
+
+The original `01-color.webp` and `01-original.webp` are unchanged client-supplied assets. Their SHA-256 baselines are in tests/source-baseline.json. The visible owl, its wing leaf, and the two moving large leaves are copies of pixels from the original color image, clipped by SVG paths. The character was not regenerated or repainted.
+
+`dist/assets/scene-paths.json` contains three editable silhouette paths traced by analyzing the original colors and manually constrained outlines. `node tools/sync-scene.mjs` embeds these paths into both entry pages. Owl pixels and its HTML hit targets share the same pivot/animation, so the leaf hunt stays attached during the greeting. Leaf color choices use CSS hue filters within the original leaf masks.
+
+The built-in **image_gen** tool was used for one background reconstruction. Its selected output was copied into the project, then encoded as **dist/assets/woodland-clean-plate.webp** (1103 × 1426, 214,376 bytes). The unused full PNG is excluded from delivery. The clean plate is shown only through the original subject silhouettes and a small edge margin; the original source supplies the rest of the page. It is local and requires no AI service at runtime. Layer load failure keeps the original scene visible and disables unavailable coloring controls honestly.
+
+## Exact generation prompt
+
+> Edit target: supplied children's storybook illustration. Create a background clean plate for animation. Remove ONLY the large perched owl (including all its body/head/tail/feet and the tiny green leaf on its wing), and remove ONLY the two large green leaves on the right attached to the branch. Reconstruct the sky, white clouds, tree trunk and brown branch that would be behind those removed objects. Preserve all other positions, shapes, colors, all lettering, Digsy inset and its reference leaf, book, stump, and scene composition EXACTLY. Same 1103x1426 portrait framing, do not crop or move objects. Do not add objects. No owl silhouette or shadows remaining. Faithful bold black outlined children's book artwork, continuous brown tree branch through where owl feet were. This clean plate will only be shown through narrowly clipped areas behind original character layers; exact alignment is essential.
+
+Input: original/assets/01-color.webp from the client ZIP. Tool mode: built-in image editing, not an API/CLI workflow. No third-party stock artwork, external font, or paid animation library was added. The generated clean plate is newly prepared supporting artwork; it is not described as an original client asset. Blink, anatomical head turning, and deforming feathers are not implemented or claimed.

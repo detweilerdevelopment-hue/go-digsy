@@ -1,0 +1,16 @@
+{
+  "name": "go-digsy",
+  "version": "1.0.0",
+  "description": "Go Digsy! original Owl adventure interactive static trial",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1"
+  },
+  "private": true
+}
